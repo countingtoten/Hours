@@ -20,11 +20,11 @@
     <table class="entries">
       <thead>
         <tr>
-          <th><%= t("entries.index.date") %></th>
-          <th><%= t("entries.index.project") %></th>
-          <th class="center"><%= t("entries.index.hours") %></th>
-          <th class="hide-for-mobile"><%= t("entries.index.category") %></th>
-          <th class="hide-for-mobile"><%= t("entries.index.tags") %></th>
+          <th width="10%"><%= t("entries.index.date") %></th>
+          <th width="12%"><%= t("entries.index.project") %></th>
+          <th width="8%" class="center"><%= t("entries.index.hours") %></th>
+          <th width="20%" class="hide-for-mobile"><%= t("entries.index.category") %></th>
+          <th width="40%" class="hide-for-mobile"><%= t("entries.index.description") %></th>
           <% if @user == current_user %>
             <th></th>
           <% end %>
@@ -44,8 +44,8 @@
               </div>
             </td>
             <td class="hide-for-mobile">
-              <div class="table-tags">
-                <%= entry.tag_list %>
+              <div class="table-description">
+                <%= sanitize autolink_tags(entry.description) %>
               </div>
             </td>
             <% if @user == current_user %>
